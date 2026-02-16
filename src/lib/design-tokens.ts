@@ -32,6 +32,7 @@ export const SPACING = {
   xl: '32px',
   '2xl': '48px',
   '3xl': '64px',
+  '4xl': '128px',
   section: '96px',
 } as const
 

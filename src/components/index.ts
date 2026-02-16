@@ -4,5 +4,7 @@
  */
 
 export { Button } from './ui/button'
+export { Card } from './ui/card'
+export { Header } from './layout/header'
 
 export { Section } from './Section'

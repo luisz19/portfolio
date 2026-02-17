@@ -6,5 +6,6 @@
 export { Button } from './ui/button'
 export { Card } from './ui/card'
 export { Header } from './layout/header'
+export { default as GradientMesh } from './GradientMesh'
 
 export { Section } from './Section'

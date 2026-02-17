@@ -15,6 +15,8 @@ export const COLORS = {
   // Texto
   textPrimary: '#EEF4ED',
   textSecondary: 'rgba(238, 244, 237, 0.86)',
+
+  buttonDefault: '#EEF4ED',
   
   // Cards
   cardLight: 'rgba(238, 244, 237, 0.08)',
@@ -33,7 +35,7 @@ export const SPACING = {
   '2xl': '48px',
   '3xl': '64px',
   '4xl': '128px',
-  section: '96px',
+  section: '128px',
 } as const
 
 export const BORDER_RADIUS = {

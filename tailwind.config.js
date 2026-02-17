@@ -20,6 +20,7 @@ export default {
   			'gradient-3': 'rgba(13, 31, 194, 0.89)',
   			'text-primary': '#EEF4ED',
   			'text-secondary': 'rgba(238, 244, 237, 0.86)',
+			'btn-default': '#EEF4ED',
   			'card-light': 'rgba(238, 244, 237, 0.08)',
   			'card-dark': 'rgba(15, 25, 40, 0.40)',
   			'stroke-default': 'rgba(238, 244, 237, 0.30)',
@@ -72,7 +73,7 @@ export default {
   			xl: '32px',
   			'2xl': '48px',
   			'3xl': '64px',
-  			section: '96px'
+  			section: '128px'
   		},
   		borderRadius: {
   			card: '12px',
@@ -80,6 +81,28 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		keyframes: {
+  			'float-slow': {
+  				'0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+  				'33%': { transform: 'translate(30px, -30px) scale(1.05)' },
+  				'80%': { transform: 'translate(-20px, 20px) scale(0.95)' }
+  			},
+  			'float-medium': {
+  				'0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+  				'33%': { transform: 'translate(-25px, 25px) scale(1.03)' },
+  				'66%': { transform: 'translate(25px, -15px) scale(0.97)' }
+  			},
+  			'float-fast': {
+  				'0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+  				'33%': { transform: 'translate(20px, 30px) scale(1.04)' },
+  				'66%': { transform: 'translate(-30px, -20px) scale(0.96)' }
+  			}
+  		},
+  		animation: {
+  			'float-slow': 'float-slow 20s ease-in-out infinite',
+  			'float-medium': 'float-medium 15s ease-in-out infinite',
+  			'float-fast': 'float-fast 25s ease-in-out infinite'
   		}
   	}
   },

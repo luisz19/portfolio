@@ -1,4 +1,5 @@
-import { Button, Card, Header } from "@/components"
+import { Header, GradientMesh } from "@/components"
+import Hero from "./components/Hero"
 
 type Section = {
     id: string
@@ -17,11 +18,14 @@ function App() {
     ]
 
   return (
-    <div className="min-h-screen  bg-bg-base text-text-primary px-section py-lg">
-      <Header 
-        sections={sections}
-
-      />
+    <div className="relative text-text-primary">
+      <GradientMesh />  
+      <div className="max-w-[1440px] mx-auto px-section py-lg">
+        <Header 
+          sections={sections}
+        />
+        <Hero />
+      </div>
     </div>
   )
 }

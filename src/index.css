@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-bg-base text-text-primary font-sans antialiased;
+    @apply bg-navy text-white font-sans antialiased;
     margin: 0;
     padding: 0;
   }

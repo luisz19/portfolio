@@ -1,6 +1,6 @@
 function GradientMesh() {
     return (
-        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-bg-base">
+        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-navy">
             {/* Container fixo para manter proporções */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1920px] h-[1080px]">
                 {/* Filtro SVG para granulado */}

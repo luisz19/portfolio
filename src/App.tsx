@@ -18,7 +18,7 @@ function App() {
     ]
 
   return (
-    <div className="relative text-text-primary">
+    <div className="relative text-white">
       <GradientMesh />  
       <div className="max-w-[1440px] mx-auto px-section py-lg">
         <Header 

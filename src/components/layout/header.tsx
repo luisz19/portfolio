@@ -31,7 +31,7 @@ export const Header = ({ sections }: HeaderProps) => {
                 
                 <nav className={`flex items-center transition-all duration-200  ${
                     isScrolled 
-                        ? 'bg-card-light backdrop-blur-md rounded-xl pl-4 pr-2 py-2 gap-6 shadow-lg' 
+                        ? 'bg-white-subtle backdrop-blur-md rounded-xl pl-4 pr-2 py-2 gap-6 shadow-lg' 
                         : 'gap-8'
                 }`}>
                     <div className="flex gap-8 items-center flex-1">
@@ -39,7 +39,7 @@ export const Header = ({ sections }: HeaderProps) => {
                             <a
                                 key={section.id}
                                 href={`#${section.id}`}
-                                className="text-text-primary hover:text-text-secondary transition-colors duration-300 text-sm"
+                                className="text-white hover:text-gray transition-colors duration-300 text-sm"
                             >
                                 {section.label}
                             </a>

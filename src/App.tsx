@@ -25,6 +25,7 @@ function App() {
           sections={sections}
         />
         <Hero />
+        <Hero />
       </div>
     </div>
   )

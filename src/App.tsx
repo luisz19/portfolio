@@ -1,5 +1,6 @@
 import { Header, GradientMesh } from "@/components"
 import Hero from "./components/Hero"
+import AboutMe from "./components/AboutMe"
 
 type Section = {
     id: string
@@ -25,7 +26,7 @@ function App() {
           sections={sections}
         />
         <Hero />
-        <Hero />
+        <AboutMe />
       </div>
     </div>
   )

@@ -1,33 +1,37 @@
-import { ArrowUpRight, Copy } from "lucide-react"
 import { Button } from "./ui/button"
+import { HERO_CONTENT } from "@/constants/heroContent"
+import { ArrowUpRight, Copy } from "lucide-react"
+
+const iconMap = {
+    ArrowUpRight,
+    Copy
+}
 
 function Hero () {
+
     return (
         <section className="py-section flex justify-center flex-col gap-7">
             
             <h1 className="text-7xl font-bold  block text-white/70">
-                Olá, me chamo Luis!
-                <span className="text-white"><br/>Desenvolvedor Fullstack.</span>
+                {HERO_CONTENT.title}
+                <span className="text-white"><br/>{HERO_CONTENT.subtitle}</span>
             </h1>
-            <p className="text-4xl text-gray max-w-3xl rounded-">Uso o código como ferramenta para explorar, estruturar e transformar ideias em sistemas.</p>
+            <p className="text-4xl text-gray max-w-3xl rounded-">{HERO_CONTENT.description}</p>
             <div className="flex gap-6">
-                <Button 
-                    className="flex items-center"
-                    size="lg"
-                    variant='default'
-                >
-                    Contate-me
-                    <ArrowUpRight color="rgba(8, 48, 94, 0.86)"
-                    />
-                </Button>
-                <Button 
-                    size="lg"
-                    variant='ghost'
-                >
-                    Copiar e-mail 
-                    <Copy color="#EEF4ED"
-                    />
-                </Button>
+                {HERO_CONTENT.buttons.map((button, index) => {
+                    const Icon = iconMap[button.icon as keyof typeof iconMap] //mapeia para o componente de ícone correto
+                    return (
+                        <Button 
+                            key={index}
+                            className="flex items-center"
+                            size="lg"
+                            variant={button.variant === "default" ? "default" : "ghost"}
+                        >
+                            {button.label}
+                            <Icon className={button.iconColor} size={20} />
+                        </Button> 
+                    )
+                })}
             </div>
         </section>
     )

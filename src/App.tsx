@@ -2,6 +2,7 @@ import { Header, GradientMesh } from "@/components"
 import Hero from "./components/Hero"
 import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
+import Experience from "./components/Experience"
 
 type Section = {
     id: string
@@ -16,7 +17,7 @@ function App() {
         { id: 'home', label: 'Home', component: <Hero /> },
         { id: 'about', label: 'Sobre', component: <AboutMe /> },
         { id: 'projects', label: 'Projetos', component: <Projects title="Projetos" /> },
-        { id: 'experience', label: 'Experiência' },
+        { id: 'experience', label: 'Experiência', component: <Experience /> },
         { id: 'skills', label: 'Skills' },
         { id: 'contact', label: 'Contato' },
     ]
@@ -31,6 +32,7 @@ function App() {
         <Hero />
         <AboutMe />
         <Projects title="Projetos" />
+        <Experience />
       </div>
     </div>
   )

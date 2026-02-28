@@ -48,7 +48,7 @@ function Projects({title}: ProjectsProps) {
                                 <p className="text-gray text-lg mt-2">{project.description}</p>
                                 <div className="flex flex-wrap gap-2 mt-4">
                                     {project.badges.map((badge, index) => (
-                                        <Badge variant={"secondary"} key={index} className="bg-gray/20 text-gray px-2 py-1 rounded">{badge}</Badge>
+                                        <Badge variant={"secondary"} key={index}>{badge}</Badge>
                                     ))}
                                 </div>
                                 <div className="w-full">

@@ -2,6 +2,8 @@ import { PROJECT_CONTENT } from "@/constants/ProjectContent";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 
 interface ProjectsProps {
     title: string;
@@ -33,8 +35,8 @@ function Projects({title}: ProjectsProps) {
                     {PROJECT_CONTENT.map((project) => (
                         <TabsContent forceMount key={project.id} value={project.title} className="col-start-1 row-start-1 flex gap-6 w-full data-[state=inactive]:invisible data-[state=inactive]:pointer-events-none">
                             <Card className="p-2 flex shrink-0">
-                                <figure className="w-[500px]">
-                                    <img src={project.image} alt={project.title} className="rounded-md object-cover" />
+                                <figure className="w-[500px] h-[300px] object-cover rounded-md">
+                                    <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-md" />
                                 </figure>
                             </Card>
 
@@ -46,8 +48,11 @@ function Projects({title}: ProjectsProps) {
                                 <p className="text-gray text-lg mt-2">{project.description}</p>
                                 <div className="flex flex-wrap gap-2 mt-4">
                                     {project.badges.map((badge, index) => (
-                                        <span key={index} className="bg-gray/20 text-gray px-2 py-1 rounded">{badge}</span>
+                                        <Badge variant={"secondary"} key={index} className="bg-gray/20 text-gray px-2 py-1 rounded">{badge}</Badge>
                                     ))}
+                                </div>
+                                <div className="w-full">
+                                    <Button variant="default" size="md" className="mt-6 w-full">Ver Projeto</Button> 
                                 </div>
                             </div>
                         </TabsContent>

@@ -10,7 +10,7 @@ const iconMap = {
 function Hero () {
 
     return (
-        <section className="py-section flex justify-center flex-col gap-7 h-screen">
+        <section className="py-section flex justify-center flex-col gap-7 h-full my-section">
             <h1 className="text-7xl font-bold  block text-white/70">
                 {HERO_CONTENT.title}
                 <span className="text-white"><br/>{HERO_CONTENT.subtitle}</span>

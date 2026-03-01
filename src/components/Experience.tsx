@@ -4,7 +4,7 @@ import { EXPERIENCE_CONTENT } from "@/constants/experienceContent"
 
 function Experience() {
     return (
-        <section className="container mx-auto px-4 py-16">
+        <section className="flex flex-col py-section">
             <h2 className="text-6xl font-semibold text-white text-center">Experiência</h2>
             <div className="space-y-8 mt-8">
                 {EXPERIENCE_CONTENT.map((exp) => (

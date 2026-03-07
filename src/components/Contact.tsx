@@ -1,4 +1,3 @@
-import { Github, Linkedin, Mail } from "lucide-react";
 import { CONTACT_CONTENT } from "../constants/contactContent";
 
 function Contact () {
@@ -11,9 +10,7 @@ function Contact () {
             <div className="flex gap-6">
                 {CONTACT_CONTENT.socialLinks.map((link) => (
                     <a key={link.name} href={link.url}>
-                        {link.icon === "github" && <Github size={32} />}
-                        {link.icon === "linkedin" && <Linkedin size={32} />}
-                        {link.icon === "mail" && <Mail size={32} />}
+                        <link.icon size={32} />
                     </a>
                 ))}
             </div>

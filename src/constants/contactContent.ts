@@ -1,3 +1,5 @@
+import { Github, Linkedin, Mail } from "lucide-react";
+
 export const CONTACT_CONTENT = {
     title: "Vamos conversar!",
     description: "Se você tem uma ideia, projeto ou quer só trocar uma mensagem, fico feliz pelo contato!",
@@ -5,17 +7,17 @@ export const CONTACT_CONTENT = {
         {
             name: "GitHub",
             url: "",
-            icon: "github",
+            icon: Github,
         },
         {
             name: "LinkedIn",
             url: "",
-            icon: "linkedin",
+            icon: Linkedin,
         },
         {
             name: "Mail",
             url: "[EMAIL_ADDRESS]",
-            icon: "mail",
+            icon: Mail,
         },
     ],
 }

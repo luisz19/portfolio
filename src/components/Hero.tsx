@@ -1,22 +1,49 @@
 import { Button } from "./ui/button"
 import { HERO_CONTENT } from "@/constants/heroContent"
 import { ArrowUpRight, Copy } from "lucide-react"
+import { motion } from "framer-motion"
 
 const iconMap = {
     ArrowUpRight,
     Copy
 }
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+} //container que engloba os itens que serão animados
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring", stiffness: 100 }
+    }
+} //itens que serão animados
+
 function Hero () {
 
     return (
-        <section className="py-section flex justify-center flex-col gap-7 h-full my-[5%]">
-            <h1 className="text-7xl font-bold  block text-white/70">
+        <motion.section 
+            className="py-section flex justify-center flex-col gap-7 h-full my-[5%]"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            <motion.h1 variants={itemVariants} className="text-7xl font-bold  block text-white/70">
                 {HERO_CONTENT.title}
                 <span className="text-white"><br/>{HERO_CONTENT.subtitle}</span>
-            </h1>
-            <p className="text-4xl text-gray max-w-3xl rounded-">{HERO_CONTENT.description}</p>
-            <div className="flex gap-6">
+            </motion.h1>
+            <motion.p variants={itemVariants} className="text-4xl text-gray max-w-3xl rounded-">
+                {HERO_CONTENT.description}
+            </motion.p>
+            <motion.div variants={itemVariants} className="flex gap-6">
                 {HERO_CONTENT.buttons.map((button, index) => {
                     const Icon = iconMap[button.icon as keyof typeof iconMap] //mapeia para o componente de ícone correto
                     return (
@@ -31,8 +58,8 @@ function Hero () {
                         </Button> 
                     )
                 })}
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     )
 }
 

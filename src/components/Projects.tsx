@@ -16,6 +16,7 @@ function Projects({title}: ProjectsProps) {
 
     return (
         <motion.section 
+            id="projects"
             className="flex flex-col py-section"
             variants={containerVariants}
             initial="hidden"

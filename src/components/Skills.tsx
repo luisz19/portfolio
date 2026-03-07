@@ -7,6 +7,7 @@ import { containerVariants, itemVariants } from "@/lib/animations";
 function Skills() {
   return (
     <motion.section 
+      id="skills"
       className="flex flex-col py-section gap-4"
       variants={containerVariants}
       initial="hidden"

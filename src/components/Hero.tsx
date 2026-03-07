@@ -13,6 +13,7 @@ function Hero () {
 
     return (
         <motion.section 
+            id="home"
             className="py-section flex justify-center flex-col gap-7 h-full my-[5%]"
             variants={containerVariants}
             initial="hidden"

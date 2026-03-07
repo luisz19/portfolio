@@ -5,6 +5,7 @@ import { containerVariants, itemVariants } from "@/lib/animations";
 function Contact () {
     return (
         <motion.section 
+            id="contact"
             className="flex flex-col py-section mb-section items-start gap-6"
             variants={containerVariants}
             initial="hidden"

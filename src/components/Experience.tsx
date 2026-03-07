@@ -1,12 +1,20 @@
 import { Badge } from "./ui/badge"
 import { Card } from "./ui/card"
 import { EXPERIENCE_CONTENT } from "@/constants/experienceContent"
+import { motion } from "framer-motion"
+import { containerVariants, itemVariants } from "@/lib/animations"
 
 function Experience() {
     return (
-        <section className="flex flex-col py-section">
-            <h2 className="text-6xl font-semibold text-white text-center">Experiência</h2>
-            <div className="space-y-8 mt-8">
+        <motion.section 
+            className="flex flex-col py-section"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+        >
+            <motion.h2 variants={itemVariants} className="text-6xl font-semibold text-white text-center">Experiência</motion.h2>
+            <motion.div variants={itemVariants} className="space-y-8 mt-8">
                 {EXPERIENCE_CONTENT.map((exp) => (
                     <Card key={exp.id} className="p-6">
                         <h3 className="text-xl font-semibold">{exp.title}</h3>
@@ -24,8 +32,8 @@ function Experience() {
                     </Card>
                 ))}
                 
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     )
 }
 

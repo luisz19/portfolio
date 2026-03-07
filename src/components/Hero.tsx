@@ -2,30 +2,12 @@ import { Button } from "./ui/button"
 import { HERO_CONTENT } from "@/constants/heroContent"
 import { ArrowUpRight, Copy } from "lucide-react"
 import { motion } from "framer-motion"
+import { containerVariants, itemVariants } from "@/lib/animations"
 
 const iconMap = {
     ArrowUpRight,
     Copy
 }
-
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2
-        }
-    }
-} //container que engloba os itens que serão animados
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { type: "spring", stiffness: 100 }
-    }
-} //itens que serão animados
 
 function Hero () {
 

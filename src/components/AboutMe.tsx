@@ -1,6 +1,8 @@
 import { Brain, Puzzle } from 'lucide-react';
 import { Card } from './ui/card';
 import { ABOUT_CONTENT } from '@/constants/aboutContent';
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '@/lib/animations';
 
 const iconMap = {
    Brain,
@@ -11,14 +13,23 @@ const iconMap = {
 function AboutMe() {
 
     return (
-        <section id="about" className="grid grid-cols-1 md:flex gap-10 py-section">
-            <Card className=' p-2 shrink-0'>
-                <figure className='h-[32.2rem] w-96 object-contain rounded-lg'>
-                    <img src={ABOUT_CONTENT.img.src} alt={ABOUT_CONTENT.img.alt} className=" rounded-lg w-full h-full object-cover" />
-                </figure>
-            </Card>
+        <motion.section 
+            id="about" 
+            className="grid grid-cols-1 md:flex gap-10 py-section"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+        >
+            <motion.div variants={itemVariants}>
+                <Card className=' p-2 shrink-0'>
+                    <figure className='h-[32.2rem] w-96 object-contain rounded-lg'>
+                        <img src={ABOUT_CONTENT.img.src} alt={ABOUT_CONTENT.img.alt} className=" rounded-lg w-full h-full object-cover" />
+                    </figure>
+                </Card>
+            </motion.div>
         
-            <div className='flex flex-col text-gray col-span-2 gap-4'>
+            <motion.div variants={itemVariants} className='flex flex-col text-gray col-span-2 gap-4'>
                 <h2 className='text-5xl font-semibold text-white'>{ABOUT_CONTENT.title}</h2>
                 
                 <div>
@@ -45,8 +56,8 @@ function AboutMe() {
                     })}
                    
                 </div>
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     );
 }
 

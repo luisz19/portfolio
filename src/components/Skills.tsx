@@ -1,13 +1,22 @@
 import { SKILLS_CONTENT } from "@/constants/skillsContent";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "@/lib/animations";
 
 function Skills() {
   return (
-    <section className="flex flex-col py-section gap-4">
-      <h2 className="text-5xl font-semibold text-white text-center">Skills</h2>
+    <motion.section 
+      className="flex flex-col py-section gap-4"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <motion.h2 variants={itemVariants} className="text-5xl font-semibold text-white text-center">Skills</motion.h2>
 
       {/* Card de tecnologias */}
+      <motion.div variants={itemVariants}>
       <Card className="mt-8 gap-4">
         <span className="text-xs font-semibold tracking-widest text-gray/60 uppercase">
           Tecnologias
@@ -29,9 +38,10 @@ function Skills() {
           ))}
         </ul>
       </Card>
+      </motion.div>
 
       {/* Cards de descrição */}
-      <div className="grid grid-cols-2 gap-4">
+      <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
         {[SKILLS_CONTENT.fullstackDescription, SKILLS_CONTENT.uxDescription].map((item) => (
           <Card key={item.title} className="gap-4 p-2">
             <figure className="w-full h-48 rounded-lg bg-dark overflow-hidden">
@@ -47,8 +57,8 @@ function Skills() {
             </div>
           </Card>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

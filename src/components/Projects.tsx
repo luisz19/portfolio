@@ -4,6 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "@/lib/animations";
 
 interface ProjectsProps {
     title: string;
@@ -13,8 +15,16 @@ function Projects({title}: ProjectsProps) {
 
 
     return (
-        <section className="flex flex-col py-section">
-            <h2 className="text-6xl font-semibold text-white text-center">{title}</h2>
+        <motion.section 
+            className="flex flex-col py-section"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+        >
+            <motion.h2 variants={itemVariants} className="text-6xl font-semibold text-white text-center">{title}</motion.h2>
+
+            <motion.div variants={itemVariants} className="w-full">
 
             <Tabs
                 defaultValue={PROJECT_CONTENT[0].title}
@@ -59,7 +69,8 @@ function Projects({title}: ProjectsProps) {
                     ))}
                 </div>
             </Tabs>
-        </section>
+            </motion.div>
+        </motion.section>
     )
 }
 

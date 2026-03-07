@@ -4,6 +4,7 @@ import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
 import Experience from "./components/Experience"
 import Skills from "./components/Skills"
+import Contact from "./components/Contact"
 
 type Section = {
     id: string
@@ -19,8 +20,8 @@ function App() {
         { id: 'about', label: 'Sobre', component: <AboutMe /> },
         { id: 'projects', label: 'Projetos', component: <Projects title="Projetos" /> },
         { id: 'experience', label: 'Experiência', component: <Experience /> },
-        { id: 'skills', label: 'Skills' },
-        { id: 'contact', label: 'Contato' },
+        { id: 'skills', label: 'Skills', component: <Skills /> },
+        { id: 'contact', label: 'Contato', component: <Contact /> },
     ]
 
   return (
@@ -35,6 +36,7 @@ function App() {
         <Projects title="Projetos" />
         <Experience />
         <Skills />
+        <Contact />
       </div>
     </div>
   )

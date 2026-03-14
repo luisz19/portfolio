@@ -19,4 +19,31 @@ export const PROJECT_CONTENT = [
         image: ImageProject1,
         link: ""
     },
+    {
+        id: 3,
+        title: "Projeto 3",
+        category: "Projeto pessoal",
+        description: "Um sistema fullstack desenvolvido para fins didáticos estudantil para a faculdade de sistemas de informação que possibilita segurança e computação em nuvem. Um sistema fullstack desenvolvido para fins didáticos estudantil para a faculdade de sistemas de informação que possibilita segurança e computação em nuvem",
+        badges: ["React", "Node.js", "AWS"],
+        image: ImageProject1,
+        link: ""
+    },
+    {
+        id: 4,
+        title: "Projeto 4",
+        category: "Projeto pessoal",
+        description: "Um sistema fullstack desenvolvido para fins didáticos estudantil para a faculdade de sistemas de informação que possibilita segurança e computação em nuvem. Um sistema fullstack desenvolvido para fins didáticos estudantil para a faculdade de sistemas de informação que possibilita segurança e computação em nuvem",
+        badges: ["React", "Node.js", "AWS"],
+        image: ImageProject1,
+        link: ""
+    },
+    {
+        id: 5,
+        title: "Projeto 5",
+        category: "Projeto pessoal",
+        description: "Um sistema fullstack desenvolvido para fins didáticos estudantil para a faculdade de sistemas de informação que possibilita segurança e computação em nuvem. Um sistema fullstack desenvolvido para fins didáticos estudantil para a faculdade de sistemas de informação que possibilita segurança e computação em nuvem",
+        badges: ["React", "Node.js", "AWS"],
+        image: ImageProject1,
+        link: ""
+    },  
 ]

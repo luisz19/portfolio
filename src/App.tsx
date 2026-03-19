@@ -5,6 +5,7 @@ import Projects from "./components/Projects"
 import Experience from "./components/Experience"
 import Skills from "./components/Skills"
 import Contact from "./components/Contact"
+import LiquidGradientBackground from "./components/LiquidGradientBackground"
 
 type Section = {
     id: string
@@ -26,19 +27,22 @@ function App() {
 
   return (
     <div className="relative text-white">
-      <GradientMesh />  
-      <div className="max-w-[1440px] mx-auto px-section py-lg">
-        <Header 
-          sections={sections}
-        />
-        <Hero />
-        <AboutMe />
-        <Projects title="Projetos" />
-        <Experience />
-        <Skills />
-        <Contact />
-      </div>
-    </div>
+      <LiquidGradientBackground>
+        <div className="max-w-[1440px] mx-auto px-section py-lg">
+          <Header 
+            sections={sections}
+          />
+          <Hero />
+          <AboutMe />
+            <Projects title="Projetos" />
+            <Experience />
+            <Skills />
+            <Contact />
+          </div>
+      </LiquidGradientBackground>
+        </div>
+
+
   )
 }
 

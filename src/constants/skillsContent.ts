@@ -23,7 +23,7 @@ export const SKILLS_CONTENT = {
         { id: 10, name: "Docker",       abbrev: "Dk", icon: DockerIcon },
     ],
     fullstackDescription: {
-        title: "Fullstack Development",
+        title: "Desenvolvimento Fullstack",
         text: "Atuo no desenvolvimento de sistemas, transformando problemas em soluções funcionais. Priorizo clareza na lógica, boas práticas e integração eficiente entre interface, API e banco de dados.",
         image: "",
     },

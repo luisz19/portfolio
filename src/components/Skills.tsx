@@ -95,7 +95,7 @@ function Skills() {
       <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
         {[SKILLS_CONTENT.fullstackDescription, SKILLS_CONTENT.uxDescription].map((item) => {
           const isUX = item.title === "UI/UX Design";
-          const isFullstack = item.title === "Fullstack Development";
+          const isFullstack = item.title === "Desenvolvimento Fullstack";
 
           return (
             <Card key={item.title} className="gap-4 p-2 group transition-all duration-500 hover:border-cyan/30">

@@ -55,7 +55,11 @@ function Skills() {
                   <Badge key={`${tech.id}-1-${i}`} variant="default" className="flex items-center transition-colors  duration-300 px-3 py-2 w-[220px] shrink-0">
                     <div className="flex items-center gap-3 w-full">
                       <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue shrink-0">
-                        <span className="text-xs font-bold text-white">{tech.abbrev}</span>
+                        {tech.icon ? (
+                          <img src={tech.icon} alt={tech.name} className="w-5 h-5 object-contain" />
+                        ) : (
+                          <span className="text-xs font-bold text-white">{tech.abbrev}</span>
+                        )}
                       </div>
                       <span className="text-sm text-gray font-medium whitespace-nowrap">{tech.name}</span>
                     </div>
@@ -71,7 +75,11 @@ function Skills() {
                   <Badge key={`${tech.id}-2-${i}`} variant="default" className="flex items-center bg-dark px-3 py-2 w-[220px] shrink-0 ">
                     <div className="flex items-center gap-3 w-full ">
                       <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue shrink-0">
-                        <span className="text-xs font-bold text-white ">{tech.abbrev}</span>
+                        {tech.icon ? (
+                          <img src={tech.icon} alt={tech.name} className="w-5 h-5 object-contain" />
+                        ) : (
+                          <span className="text-xs font-bold text-white ">{tech.abbrev}</span>
+                        )}
                       </div>
                       <span className="text-sm text-gray font-medium whitespace-nowrap ">{tech.name}</span>
                     </div>

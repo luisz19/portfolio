@@ -1,15 +1,26 @@
+import TypeScriptIcon from "@/assets/icons/typescript.svg"
+import ReactIcon from "@/assets/icons/react.svg"
+import NodeIcon from "@/assets/icons/node.svg"
+import NestIcon from "@/assets/icons/nestjs.svg"
+import TailwindIcon from "@/assets/icons/tailwind.svg"
+import PostgresIcon from "@/assets/icons/postgres.svg"
+import ExpressIcon from "@/assets/icons/express.svg"
+import MongoIcon from "@/assets/icons/mongodb.svg"
+import MysqlIcon from "@/assets/icons/mysql.svg"
+import DockerIcon from "@/assets/icons/docker.svg"
+
 export const SKILLS_CONTENT = {
     tecnologies: [
-        { id: 1,  name: "TypeScript",  abbrev: "TS" },
-        { id: 2,  name: "React",        abbrev: "Re" },
-        { id: 3,  name: "NodeJS",       abbrev: "No" },
-        { id: 4,  name: "NestJS",       abbrev: "Ne" },
-        { id: 5,  name: "TailwindCSS",  abbrev: "Tw" },
-        { id: 6,  name: "ShadCN",       abbrev: "Sh" },
-        { id: 7,  name: "Express",      abbrev: "Ex" },
-        { id: 8,  name: "MongoDB",      abbrev: "Mg" },
-        { id: 9,  name: "MySQL",        abbrev: "My" },
-        { id: 10, name: "Docker",       abbrev: "Dk" },
+        { id: 1,  name: "TypeScript",  abbrev: "TS", icon: TypeScriptIcon },
+        { id: 2,  name: "React",        abbrev: "Re", icon: ReactIcon },
+        { id: 3,  name: "NodeJS",       abbrev: "No", icon: NodeIcon },
+        { id: 4,  name: "NestJS",       abbrev: "Ne", icon: NestIcon },
+        { id: 5,  name: "TailwindCSS",  abbrev: "Tw", icon: TailwindIcon },
+        { id: 6,  name: "PostgreSQL",   abbrev: "Pg", icon: PostgresIcon },
+        { id: 7,  name: "Express",      abbrev: "Ex", icon: ExpressIcon },
+        { id: 8,  name: "MongoDB",      abbrev: "Mg", icon: MongoIcon },
+        { id: 9,  name: "MySQL",        abbrev: "My", icon: MysqlIcon },
+        { id: 10, name: "Docker",       abbrev: "Dk", icon: DockerIcon },
     ],
     fullstackDescription: {
         title: "Fullstack Development",

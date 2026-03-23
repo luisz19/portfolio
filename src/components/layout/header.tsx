@@ -30,7 +30,7 @@ export const Header = ({ sections }: HeaderProps) => {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: 0.3, rootMargin: "-10% 0px -10% 0px" });
+        }, { threshold: 0, rootMargin: "-40% 0px -50% 0px" });
 
         sections.forEach((section) => {
             const element = document.getElementById(section.id);

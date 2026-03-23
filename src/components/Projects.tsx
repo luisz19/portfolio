@@ -16,12 +16,11 @@ function Projects({ title }: ProjectsProps) {
         target: containerRef,
         offset: ["start start", "end end"]
     });
-    
+
     const [activeIndex, setActiveIndex] = useState(0);
     const numProjects = PROJECT_CONTENT.length;
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        // Find the closest index based on how far down the container we've scrolled
         const newIndex = Math.min(
             Math.max(Math.round(latest * (numProjects - 1)), 0),
             numProjects - 1
@@ -36,50 +35,50 @@ function Projects({ title }: ProjectsProps) {
             const containerStart = containerRef.current.offsetTop;
             const containerHeight = containerRef.current.offsetHeight;
             const windowHeight = window.innerHeight;
-            
+
             // Calculate exactly where this index lies within the scroll distance
             const scrollableDistance = containerHeight - windowHeight;
             const targetProgress = numProjects > 1 ? index / (numProjects - 1) : 0;
             const targetY = containerStart + scrollableDistance * targetProgress;
-            
+
             window.scrollTo({ top: targetY, behavior: "smooth" });
         }
     };
 
     return (
-        <section 
+        <section
             id="projects"
             ref={containerRef}
             className="w-full relative"
-            style={{ 
-                height: `calc(100vh + ${(numProjects - 1) * 80}vh)` 
+            style={{
+                height: `calc(100vh + ${(numProjects - 1) * 80}vh)`
             }}
         >
             <div className="sticky top-0 h-screen min-h-[800px] w-full flex items-center overflow-hidden py-section">
-                
+
                 <div className="container mx-auto h-full flex flex-col items-center">
-                    <motion.h2 
-                        variants={itemVariants} 
-                        initial="hidden" 
-                        whileInView="visible" 
-                        className="text-6xl font-semibold text-white text-center shrink-0"
+                    <motion.h2
+                        variants={itemVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="text-6xl font-semibold text-white text-center"
                     >
                         {title}
                     </motion.h2>
 
-                    <div className="w-full max-w-6xl flex-1 flex flex-row items-center gap-16 mt-12 mb-8 max-h-[80vh]">
+                    <div className="w-full max-w-8xl flex-1 flex flex-row items-center gap-20 max-h-[80vh]">
                         {/* Tab lateral */}
-                        <div className="flex flex-col items-start gap-3 shrink-0 w-[160px]">
+                        <div className="flex flex-col items-start gap-3 mr-10 shrink-0 w-[160px]">
                             {PROJECT_CONTENT.map((project, idx) => {
                                 const isActive = activeIndex === idx;
                                 return (
                                     <button
                                         key={project.id}
                                         onClick={() => handleSidebarClick(idx)}
-                                        className={`relative px-4 py-2 transition-colors duration-300 text-left ${
-                                            isActive ? "text-white cursor-default" : "text-gray hover:text-white"
-                                        }`}
-                                        style={{ fontSize: '1.15rem', fontWeight: isActive ? 600 : 400 }}
+                                        className={`relative w-[200px] px-2 py-2 transition-colors duration-300 text-left ${isActive ? "text-white cursor-default" : "text-gray hover:text-white"
+                                            }`}
+                                        style={{ fontSize: '1rem', fontWeight: isActive ? 600 : 400 }}
                                     >
                                         {project.title}
                                         {isActive && (
@@ -107,22 +106,21 @@ function Projects({ title }: ProjectsProps) {
                                 let opacity = 1;
                                 let scale = 1;
                                 let zIndex = 10 - idx;
-                                
+
                                 if (isActive) {
                                     yOffset = "0px";
-                                    opacity = 1;
+                                    opacity = 3;
                                     scale = 1;
-                                    zIndex = 20; // Active is highest
+                                    zIndex = 20;
                                 } else if (isPast) {
-                                    // Animated Out (Upwards)
-                                    yOffset = "-180px";
-                                    opacity = 0;
-                                    scale = 0.95;
-                                    zIndex = 10; 
+                                    yOffset = `${distance * -30}px`;
+                                    opacity = 0.5;
+                                    scale = 1 - (distance * 0.1);
+                                    zIndex = 10;
                                 } else {
                                     // Animated Trail (Downwards, fading, scaling)
                                     yOffset = `${distance * 60}px`;
-                                    opacity = 1 - (distance * 0.45);
+                                    opacity = 0.5;
                                     scale = 1 - (distance * 0.08);
                                     zIndex = 10 - distance;
                                 }
@@ -139,16 +137,16 @@ function Projects({ title }: ProjectsProps) {
                                             zIndex: zIndex
                                         }}
                                         transition={{
-                                            duration: 0.8,
-                                            ease: [0.16, 1, 0.3, 1] // Custom snappy spring easing
+                                            duration: 0.7,
+                                            ease: [0.16, 1, 0.3, 1]
                                         }}
                                     >
-                                        <Card className="p-2 flex shrink-0">
-                                            <figure className="w-[500px] h-[300px] object-cover rounded-md overflow-hidden">
-                                                <img 
-                                                    src={project.image} 
-                                                    alt={project.title} 
-                                                    className="w-full h-full object-cover rounded-md transition-transform duration-700 hover:scale-105" 
+                                        <Card className="p-2">
+                                            <figure className="w-[530px] h-[250px]">
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="w-full h-full object-cover rounded-md "
                                                 />
                                             </figure>
                                         </Card>
@@ -167,15 +165,15 @@ function Projects({ title }: ProjectsProps) {
                                     exit={{ opacity: 0, y: -15, position: 'absolute' }}
                                     transition={{ duration: 0.35, ease: "easeOut" }}
                                     className="flex flex-col justify-start w-full pr-8"
-                                    >
-                                    <Card className="p-4">
-                                    <div className="flex gap-2 items-start justify-between">
-                                        <h3 className="text-2xl font-bold">{PROJECT_CONTENT[activeIndex].title}</h3>
-                                        <span className="text-sm text-gray/70">{PROJECT_CONTENT[activeIndex].category}</span>
-                                    </div>
+                                >
+                                    <Card>
+                                        <div className="flex gap-1 flex-col">
+                                            <h3 className="text-2xl font-bold">{PROJECT_CONTENT[activeIndex].title}</h3>
+                                            <span className="text-sm text-gray/70">{PROJECT_CONTENT[activeIndex].category}</span>
+                                        </div>
 
 
-                                        <p className="text-gray text-lg mt-2">
+                                        <p className="text-gray t mt-2">
                                             {PROJECT_CONTENT[activeIndex].description}
                                         </p>
                                         <div className="flex flex-wrap gap-2 mt-4">
@@ -184,7 +182,9 @@ function Projects({ title }: ProjectsProps) {
                                             ))}
                                         </div>
                                         <div className="w-full">
-                                            <Button variant="default" size="md" className="mt-6 w-full">Ver Projeto</Button>
+                                            <a href={PROJECT_CONTENT[activeIndex].link} target="_blank" rel="noopener noreferrer" className="block w-full">
+                                                <Button variant="default" size="md" className="mt-6 w-full">Ver Projeto</Button>
+                                            </a>
                                         </div>
                                     </Card>
                                 </motion.div>

@@ -73,7 +73,8 @@ export default {
   			xl: '32px',
   			'2xl': '48px',
   			'3xl': '64px',
-  			section: '128px'
+  			section: '12px',
+			'section-md': '96px'
   		},
   		borderRadius: {
   			card: '12px',

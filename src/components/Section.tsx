@@ -1,28 +1,23 @@
-import { motion } from 'framer-motion'
-import { ReactNode } from 'react'
+import { containerVariants } from '@/lib/animations'
+import { motion, HTMLMotionProps } from 'framer-motion'
+import { forwardRef } from 'react'
 
-interface SectionProps {
-  title: string
-  subtitle?: string
-  children: ReactNode
-}
+interface SectionProps extends HTMLMotionProps<"section"> {}
 
-export const Section = ({ title, subtitle, children }: SectionProps) => {
+export const Section = forwardRef<HTMLElement, SectionProps>(({ children, className = '', ...props }, ref) => {
   return (
-    <section className="px-md md:px-lg py-section">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-2xl text-center"
-        >
-          
-        </motion.div>
-        
-        {children}
-      </div>
-    </section>
+    <motion.section
+      ref={ref}
+      className={ className  + ' my-section flex'}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      {...props}
+    >
+      {children}
+    </motion.section>
   )
-}
+})
+
+Section.displayName = 'Section'

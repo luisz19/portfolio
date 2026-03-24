@@ -14,7 +14,7 @@ const buttonVariants = cva(
         destructive:
           "bg-red-600 text-white shadow-sm hover:bg-red-700 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transition-shadow duration-300",
         outline:
-          "border border-gray-border bg-transparent shadow-sm hover:bg-white-subtle hover:text-white hover:shadow-[0_0_15px_rgba(238,244,237,0.2)] transition-shadow duration-300",
+          "border-2 border-gray-border font-bold text-gray bg-transparent shadow-sm hover:bg-white-subtle hover:text-white hover:shadow-[0_0_15px_rgba(238,244,237,0.2)] transition-shadow duration-300",
         secondary:
           "bg-dark text-white shadow-sm hover:bg-white-subtle hover:shadow-[0_0_15px_rgba(238,244,237,0.15)] transition-shadow duration-300",
         ghost: "bg-blue/30 border border-blue text-white hover:bg-blue/10 text-md hover:shadow-[0_0_20px_rgba(48,157,200,0.4)] transition-shadow duration-300",
@@ -23,7 +23,7 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-12 px-8",
+        lg: "md:h-12 md:px-8 h-10 px-4",
         md: "h-9 w-9 rounded-md ",
       },
     },

@@ -1,4 +1,4 @@
-import { Header, GradientMesh } from "@/components"
+import { Header } from "@/components"
 import Hero from "./components/Hero"
 import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="relative text-white">
       <LiquidGradientBackground>
-        <div className="max-w-[1440px] mx-auto px-section py-lg">
+        <div className="md:max-w-[1440px] mx-auto px-section py-section-md md:px-section-md gap-y-section flex flex-col">
           <Header 
             sections={sections}
           />

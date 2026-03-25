@@ -1,18 +1,62 @@
 import { SKILLS_CONTENT } from "@/constants/skillsContent";
 import { Card } from "./ui/card";
+import { useState } from "react";
 import { Badge } from "./ui/badge";
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/animations";
+import { motion, AnimatePresence } from "framer-motion";
+import { Maximize2, Minimize2 } from "lucide-react";
+import { itemVariants } from "@/lib/animations";
+import { Section } from "./Section";
 
 function Skills() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const allTechs = SKILLS_CONTENT.tecnologies;
+  
+  // Desktop splits (2 linhas)
+  const deskMid = Math.ceil(allTechs.length / 2);
+  const deskRow1 = allTechs.slice(0, deskMid);
+  const deskRow2 = allTechs.slice(deskMid);
+
+  // Mobile splits (3 linhas)
+  const mobThird1 = Math.ceil(allTechs.length / 3);
+  const mobThird2 = Math.ceil(allTechs.length * 2 / 3);
+  const mobRow1 = allTechs.slice(0, mobThird1);
+  const mobRow2 = allTechs.slice(mobThird1, mobThird2);
+  const mobRow3 = allTechs.slice(mobThird2);
+
+  const renderMarqueeRow = (items: typeof allTechs, direction: 'left' | 'right', keyPrefix: string, isDark?: boolean) => {
+    const rowItems = [...items, ...items];
+    const animateClass = direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right';
+
+    return (
+      <div className="flex overflow-hidden w-full marquee-container mask-image-fade -mx-2">
+        <div className={`flex gap-3 w-max ${animateClass} px-3`}>
+          {rowItems.map((tech, i) => (
+            <Badge 
+              key={`${tech.id}-${keyPrefix}-${i}`} 
+              variant="default" 
+              className={`flex items-center px-3 py-2 w-[220px] shrink-0 ${isDark ? 'bg-dark' : 'transition-colors duration-300'}`}
+            >
+              <div className="flex items-center gap-3 w-full">
+                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue shrink-0">
+                  {tech.icon ? (
+                    <img src={tech.icon} alt={tech.name} className="w-5 h-5 object-contain" />
+                  ) : (
+                    <span className="text-xs font-bold text-white">{tech.abbrev}</span>
+                  )}
+                </div>
+                <span className="text-sm text-gray font-medium whitespace-nowrap">{tech.name}</span>
+              </div>
+            </Badge>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <motion.section 
+    <Section 
       id="skills"
-      className="flex flex-col py-section gap-4"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      className="flex flex-col gap-4 pb-section-md"
     >
       <style>{`
         @keyframes marquee-left {
@@ -39,60 +83,84 @@ function Skills() {
         }
       `}</style>
       
-      <motion.h2 variants={itemVariants} className="text-5xl font-semibold text-white text-center">Skills</motion.h2>
+      <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl font-semibold text-white text-center">Skills</motion.h2>
 
       {/* Card de tecnologias */}
       <motion.div variants={itemVariants}>
-        <Card className="mt-8 flex flex-col gap-4 px-4 overflow-hidden">
-          <span className="text-xs font-semibold tracking-widest text-gray/60 uppercase">
-            Tecnologias
-          </span>
-          
-          <div className="flex flex-col gap-3 mt-2">
-            <div className="flex overflow-hidden w-full marquee-container mask-image-fade -mx-2">
-              <div className="flex gap-3 w-max animate-marquee-left px-3">
-                {[...SKILLS_CONTENT.tecnologies.slice(0, Math.ceil(SKILLS_CONTENT.tecnologies.length / 2)), ...SKILLS_CONTENT.tecnologies.slice(0, Math.ceil(SKILLS_CONTENT.tecnologies.length / 2))].map((tech, i) => (
-                  <Badge key={`${tech.id}-1-${i}`} variant="default" className="flex items-center transition-colors  duration-300 px-3 py-2 w-[220px] shrink-0">
-                    <div className="flex items-center gap-3 w-full">
-                      <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue shrink-0">
-                        {tech.icon ? (
-                          <img src={tech.icon} alt={tech.name} className="w-5 h-5 object-contain" />
-                        ) : (
-                          <span className="text-xs font-bold text-white">{tech.abbrev}</span>
-                        )}
-                      </div>
-                      <span className="text-sm text-gray font-medium whitespace-nowrap">{tech.name}</span>
-                    </div>
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            {/* Segunda linha (da esquerda para direita) */}
-            <div className="flex overflow-hidden w-full marquee-container mask-image-fade -mx-2">
-              <div className="flex gap-3 w-max animate-marquee-right px-3">
-                {[...SKILLS_CONTENT.tecnologies.slice(Math.ceil(SKILLS_CONTENT.tecnologies.length / 2)), ...SKILLS_CONTENT.tecnologies.slice(Math.ceil(SKILLS_CONTENT.tecnologies.length / 2))].map((tech, i) => (
-                  <Badge key={`${tech.id}-2-${i}`} variant="default" className="flex items-center bg-dark px-3 py-2 w-[220px] shrink-0 ">
-                    <div className="flex items-center gap-3 w-full ">
-                      <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue shrink-0">
-                        {tech.icon ? (
-                          <img src={tech.icon} alt={tech.name} className="w-5 h-5 object-contain" />
-                        ) : (
-                          <span className="text-xs font-bold text-white ">{tech.abbrev}</span>
-                        )}
-                      </div>
-                      <span className="text-sm text-gray font-medium whitespace-nowrap ">{tech.name}</span>
-                    </div>
-                  </Badge>
-                ))}
-              </div>
-            </div>
+        <Card className="mt-4 md:mt-8 flex flex-col gap-0 px-0 overflow-hidden">
+          <div className="flex justify-between items-center px-4 pb-2">
+            <span className="text-xs font-semibold tracking-widest text-gray/60 uppercase">
+              Tecnologias
+            </span>
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)} 
+              className="text-gray hover:text-white transition-colors"
+              aria-label={isExpanded ? "Recolher tecnologias" : "Expandir tecnologias"}
+            >
+              {isExpanded ? <Minimize2 size={16} className="text-cyan"/> : <Maximize2 size={16} />}
+            </button>
           </div>
+          
+          <AnimatePresence mode="wait" initial={false}>
+            {!isExpanded ? (
+              <motion.div 
+                key="marquee"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col gap-4 pb-4 px-4 overflow-hidden"
+              >
+                {/* DESKTOP: 2 linhas */}
+                <div className="hidden md:flex flex-col gap-3 mt-2">
+                  {renderMarqueeRow(deskRow1, 'left', 'desk-1')}
+                  {renderMarqueeRow(deskRow2, 'right', 'desk-2', true)}
+                </div>
+
+                {/* MOBILE: 3 linhas */}
+                <div className="flex md:hidden flex-col gap-3 mt-2">
+                  {renderMarqueeRow(mobRow1, 'left', 'mob-1')}
+                  {renderMarqueeRow(mobRow2, 'right', 'mob-2', true)}
+                  {renderMarqueeRow(mobRow3, 'left', 'mob-3')}
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="static"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="flex flex-wrap gap-3 px-4  mt-2 justify-center sm:justify-center">
+                  {allTechs.map((tech, i) => (
+                    <Badge 
+                      key={`static-${tech.id}-${i}`} 
+                      variant="default" 
+                      className="flex items-center px-3 py-2 w-auto sm:w-[200px] shrink-0 "
+                    >
+                      <div className="flex items-center gap-3 w-full">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue shrink-0">
+                          {tech.icon ? (
+                            <img src={tech.icon} alt={tech.name} className="w-4 h-4 object-contain" />
+                          ) : (
+                            <span className="text-xs font-bold text-white">{tech.abbrev}</span>
+                          )}
+                        </div>
+                        <span className="text-sm text-gray font-medium whitespace-nowrap">{tech.name}</span>
+                      </div>
+                    </Badge>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Card>
       </motion.div>
 
       {/* Cards de descrição */}
-      <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
+      <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-4">
         {[SKILLS_CONTENT.fullstackDescription, SKILLS_CONTENT.uxDescription].map((item) => {
           const isUX = item.title === "UI/UX Design";
           const isFullstack = item.title === "Desenvolvimento Fullstack";
@@ -116,7 +184,7 @@ function Skills() {
           )
         })}
       </motion.div>
-    </motion.section>
+    </Section>
   );
 }
 

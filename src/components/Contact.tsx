@@ -1,16 +1,13 @@
 import { CONTACT_CONTENT } from "../constants/contactContent";
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/animations";
+import { itemVariants } from "@/lib/animations";
+import { Section } from "./Section";
 
 function Contact () {
     return (
-        <motion.section 
+        <Section 
             id="contact"
-            className="flex flex-col py-section mb-section items-start gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            className="flex flex-col items-start gap-6 md:py-section-md"
         >
             <motion.h2 variants={itemVariants} className="text-6xl font-semibold text-white text-center">{CONTACT_CONTENT.title}</motion.h2>
             <motion.p variants={itemVariants} className="text-4xl text-gray max-w-3xl">
@@ -23,7 +20,7 @@ function Contact () {
                     </a>
                 ))}
             </motion.div>
-        </motion.section>
+        </Section>
     );  
 }
 

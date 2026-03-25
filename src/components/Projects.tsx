@@ -64,7 +64,7 @@ function Projects({ title }: ProjectsProps) {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="text-6xl font-semibold text-white text-center"
+                        className="text-4xl md:text-6xl font-semibold text-white text-center"
                     >
                         {title}
                     </motion.h2>
@@ -77,7 +77,7 @@ function Projects({ title }: ProjectsProps) {
                                     <button
                                         key={project.id}
                                         onClick={() => handleSidebarClick(idx)}
-                                        className={`relative w-[200px] px-2 py-2 transition-colors duration-300 text-left ${isActive ? "text-white cursor-default" : "text-gray hover:text-white"
+                                        className={`relative w-[200px] px-3 py-2 transition-colors duration-300 text-left ${isActive ? "text-white cursor-default" : "text-gray hover:text-white"
                                             }`}
                                         style={{ fontSize: '1rem', fontWeight: isActive ? 600 : 400 }}
                                     >
@@ -114,7 +114,7 @@ function Projects({ title }: ProjectsProps) {
                                     scale = 1;
                                     zIndex = 20;
                                 } else if (isPast) {
-                                    yOffset = `${distance * -30}px`;
+                                    yOffset = `${distance * -35}px`;
                                     opacity = 1;
                                     scale = 1 - (distance * 0.1);
                                     zIndex = 10;

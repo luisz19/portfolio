@@ -44,19 +44,22 @@ function Hero() {
                                 exit: { transition: { staggerChildren: 0.02 } }
                             }}
                         >
-                            {HERO_CONTENT.subtitles[currentSubtitleIndex].split("").map((char, index) => (
-                                <motion.span
-                                    key={index}
-                                    variants={{
-                                        hidden: { opacity: 0, filter: "blur(12px)", x: -5 },
-                                        visible: { opacity: 1, filter: "blur(0px)", x: 0 },
-                                        exit: { opacity: 0, filter: "blur(12px)", x: 5 }
-                                    }}
-                                    className="inline-block"
-                                    style={{ whiteSpace: "pre" }}
-                                >
-                                    {char}
-                                </motion.span>
+                            {HERO_CONTENT.subtitles[currentSubtitleIndex].split(" ").map((word, wordIndex) => (
+                                <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em]">
+                                    {word.split("").map((char, charIndex) => (
+                                        <motion.span
+                                            key={charIndex}
+                                            variants={{
+                                                hidden: { opacity: 0, filter: "blur(12px)", x: -5 },
+                                                visible: { opacity: 1, filter: "blur(0px)", x: 0 },
+                                                exit: { opacity: 0, filter: "blur(12px)", x: 5 }
+                                            }}
+                                            className="inline-block"
+                                        >
+                                            {char}
+                                        </motion.span>
+                                    ))}
+                                </span>
                             ))}
                         </motion.span>
                     </AnimatePresence>

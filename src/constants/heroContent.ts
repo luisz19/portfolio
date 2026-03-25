@@ -14,7 +14,15 @@ export const HERO_CONTENT = {
             label: "Download CV",
             variant: "ghost" as const,
             icon: "Download",
-            iconColor: "text-white"
+            iconColor: "text-white",
+            onClick: () => {
+                const link = document.createElement("a");
+                link.href = "/cv.pdf";
+                link.download = "cv_luis.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         }
     ]
  

@@ -19,15 +19,15 @@ function Experience() {
         <section 
             id="experience"
             ref={containerRef}
-            className="w-full relative py-section"
+            className="w-full relative pb-section-md"
         >
-            <div className="container mx-auto max-w-4xl relative">
+            <div className="container mx-auto max-w-4xl relative px- md:px-8">
                 <motion.h2 
                     variants={itemVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="text-6xl font-semibold text-white text-center mb-24"
+                    className="text-4xl md:text-6xl font-semibold text-white text-center mb-12 md:mb-24"
                 >
                     Experiência
                 </motion.h2>
@@ -44,14 +44,14 @@ function Experience() {
 
                     <div className="w-full flex flex-col relative z-10 ">
                         {EXPERIENCE_CONTENT.map((exp, idx) => {
-                            const isLast = idx === EXPERIENCE_CONTENT.length 
+                            const isLast = idx === EXPERIENCE_CONTENT.length - 1
                             
                             return (
                                 <div 
                                     key={exp.id}
                                     className="sticky w-full flex items-start"
                                     style={{ 
-                                        top: `calc(20vh + ${idx * 40}px)`, 
+                                        top: `calc(20vh + ${idx * 80}px)`, 
                                         marginBottom: isLast ? '0' : '10vh'
                                     }}
                                 >
@@ -59,7 +59,7 @@ function Experience() {
                                     <div className="relative flex items-center justify-center w-[46px] shrink-0 pt-6">
                                         <div className="w-4 h-4 rounded-full border-2 border-white bg-navy z-20" />
                                     
-                                        <div className="absolute right-12 whitespace-nowrap text-xl text-gray/70 font-light opacity-100 pr-4">
+                                        <div className="hidden lg:block absolute right-12 whitespace-nowrap text-xl text-gray/70 font-light opacity-100 pr-4">
                                             {exp.date.split(' - ')[0]}
                                         </div>
                                     </div>
@@ -72,8 +72,8 @@ function Experience() {
                                             viewport={{ margin: "-100px", once: true }}
                                             transition={{ duration: 0.5, delay: 0.1 }}
                                         >
-                                            <Card className="p-6">
-                                                <h3 className="text-xl font-semibold">{exp.title}</h3>
+                                            <Card className="p-4 sm:p-6">
+                                                <h3 className="text-lg sm:text-xl font-semibold">{exp.title}</h3>
                                                 <p className="text-gray text-sm">{exp.date}</p>
                                                 <ul className="list-disc list-inside mt-2 text-gray">
                                                     {exp.description.split('\n').filter(Boolean).map((line, i) => (

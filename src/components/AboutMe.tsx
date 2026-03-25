@@ -16,7 +16,7 @@ function AboutMe() {
     return (
         <Section 
             id="about" 
-            className="flex flex-col md:flex-row md:gap-10 gap-4"         
+            className="flex flex-col md:flex-row md:gap-10 gap-4 md:pt-section-md"         
         >
             <motion.div variants={itemVariants} className="w-full md:w-auto">
                 <Card className=' p-2 shrink-0 w-full justify-center'>

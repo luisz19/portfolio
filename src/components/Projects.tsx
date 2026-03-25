@@ -96,7 +96,7 @@ function Projects({ title }: ProjectsProps) {
                         </div>
 
                         {/* Perspective Image Stack */}
-                        <div className="w-full lg:flex-1 relative z-10 flex items-center justify-center h-[480px] sm:h-[500px] lg:h-full lg:w-[500px]">
+                        <div className="w-full lg:flex-1 relative z-10 flex items-center justify-center h-[480px] sm:h-[500px] md:h-full md:w-[500px]">
                             {PROJECT_CONTENT.map((project, idx) => {
                                 const isActive = idx === activeIndex;
                                 const isPast = idx < activeIndex;
@@ -143,7 +143,7 @@ function Projects({ title }: ProjectsProps) {
                                         }}
                                     >
                                         <Card className="p-2 w-[85vw] sm:w-[530px] lg:w-auto bg-dark">
-                                            <figure className="w-full h-[200px] sm:h-[250px]">
+                                            <figure className="w-full h-[250px] md:h-[300px] md:w-[500px]">
                                                 <img
                                                     src={project.image}
                                                     alt={project.title}

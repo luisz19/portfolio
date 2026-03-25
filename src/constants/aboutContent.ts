@@ -1,4 +1,4 @@
-import MyProfile from '@/assets/profile.jpg';
+import MyProfile from '@/assets/me.webp';
 
 export const ABOUT_CONTENT = {
     img: {

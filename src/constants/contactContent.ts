@@ -1,4 +1,6 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import GithubIcon from '@/assets/icons/github.svg';
+import LinkedinIcon from '@/assets/icons/linkedin.svg';
+import EmailIcon from '@/assets/icons/email.svg';
 
 export const CONTACT_CONTENT = {
     title: "Vamos conversar!",
@@ -6,18 +8,18 @@ export const CONTACT_CONTENT = {
     socialLinks: [
         {
             name: "GitHub",
-            url: "",
-            icon: Github,
+            url: "https://github.com/luisz19",
+            icon: GithubIcon,
         },
         {
             name: "LinkedIn",
-            url: "",
-            icon: Linkedin,
+            url: "https://www.linkedin.com/in/luis-alencar-dev/",
+            icon: LinkedinIcon,
         },
         {
             name: "Mail",
-            url: "[EMAIL_ADDRESS]",
-            icon: Mail,
+            icon: EmailIcon,
+            onClick: () => window.open("mailto:luiss18.code@gmail.com"),
         },
     ],
 }

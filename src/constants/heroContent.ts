@@ -7,12 +7,13 @@ export const HERO_CONTENT = {
             label: "Contate-me",
             variant: "default" as const,
             icon: "ArrowUpRight" ,
-            iconColor: "text-blue"
+            iconColor: "text-blue",
+            onClick: () => window.open("mailto:luiss18.code@gmail.com")
         },
         {
-            label: "Ver CV",
+            label: "Download CV",
             variant: "ghost" as const,
-            icon: "Copy",
+            icon: "Download",
             iconColor: "text-white"
         }
     ]

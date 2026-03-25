@@ -1,13 +1,13 @@
 import { Button } from "./ui/button"
 import { HERO_CONTENT } from "@/constants/heroContent"
-import { ArrowUpRight, Copy } from "lucide-react"
+import { ArrowUpRight, Download } from "lucide-react"
 import { motion } from "framer-motion"
 import { itemVariants } from "@/lib/animations"
 import { Section } from "./Section"
 
 const iconMap = {
     ArrowUpRight,
-    Copy
+    Download
 }
 
 function Hero() {
@@ -15,7 +15,7 @@ function Hero() {
     return (
         <Section
             id="home"
-            className="flex justify-center flex-col gap-5 md:gap-7 h-full my-[5%]  md:py-section-md pb-section-md"
+            className="flex justify-center flex-col gap-5 md:gap-7 md:h-full h-[80vh] my-[5%]  md:py-section-md pb-section-md"
             animate="visible"
         >
             <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-bold  block text-white/70">
@@ -34,6 +34,7 @@ function Hero() {
                             className="flex items-center text-sm md:text-base "
                             size="lg"
                             variant={button.variant === "default" ? "default" : "outline"}
+                            onClick={button.onClick}
                         >
                             {button.label}
                             <Icon className={button.iconColor} size={20} />

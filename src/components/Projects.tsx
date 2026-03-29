@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { PROJECT_CONTENT } from "@/constants/ProjectContent";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
@@ -46,16 +46,27 @@ function Projects({ title }: ProjectsProps) {
         }
     };
 
+    const [scrollMultiplier, setScrollMultiplier] = useState(90);
+
+    useEffect(() => {
+        const updateMultiplier = () => {
+            setScrollMultiplier(window.innerWidth < 1024 ? 45 : 90);
+        };
+        updateMultiplier(); // Initial check
+        window.addEventListener("resize", updateMultiplier);
+        return () => window.removeEventListener("resize", updateMultiplier);
+    }, []);
+
     return (
         <Section
             id="projects"
             ref={containerRef}
             className="w-full relative"
             style={{
-                height: `calc(100vh + ${(numProjects - 1) * 90}vh)`
+                height: `calc(100dvh + ${(numProjects - 1) * scrollMultiplier}dvh)`
             }}
         >
-            <div className="sticky top-0 h-screen min-h-[300px] w-full flex items-center overflow-hidden">
+            <div className="sticky top-0 h-[100dvh] min-h-[300px] w-full flex items-center overflow-hidden">
 
                 <div className="container mx-auto flex flex-col items-center">
 
@@ -68,7 +79,7 @@ function Projects({ title }: ProjectsProps) {
                     >
                         {title}
                     </motion.h2>
-                    <div className="w-full max-w-8xl flex-1 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-20 max-h-[85vh] lg:max-h-[60vh] mt-4 lg:mt-0">
+                    <div className="w-full max-w-8xl flex-1 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-20 max-h-[85dvh] lg:max-h-[60dvh] mt-12 lg:mt-0">
                         {/* Tab lateral */}
                         <div className="hidden lg:flex flex-col items-start gap-3 mr-10 shrink-0 w-[160px]">
                             {PROJECT_CONTENT.map((project, idx) => {
@@ -114,14 +125,14 @@ function Projects({ title }: ProjectsProps) {
                                     scale = 1;
                                     zIndex = 20;
                                 } else if (isPast) {
-                                    yOffset = `${distance * -35}px`;
-                                    opacity = 1;
+                                    yOffset = `${distance * -25}px`;
+                                    opacity = 0.4;
                                     scale = 1 - (distance * 0.1);
                                     zIndex = 10;
                                 } else {
                                     // Animated Trail (Downwards, fading, scaling)
                                     yOffset = `${distance * 60}px`;
-                                    opacity = 1;
+                                    opacity = 0.2;
                                     scale = 1 - (distance * 0.08);
                                     zIndex = 10 - distance;
                                 }
@@ -142,8 +153,8 @@ function Projects({ title }: ProjectsProps) {
                                             ease: [0.16, 1, 0.3, 1]
                                         }}
                                     >
-                                        <Card className="p-2 w-[85vw] sm:w-[530px] lg:w-auto bg-dark">
-                                            <figure className="w-full h-[250px] md:h-[300px] md:w-[500px]">
+                                        <Card className="p-2 w-[85vw] sm:w-[530px] lg:w-auto bg-[#0F1928] max-md:backdrop-blur-none">
+                                            <figure className="w-full h-[170px] md:h-[300px] md:w-[500px]">
                                                 <img
                                                     src={project.image}
                                                     alt={project.title}

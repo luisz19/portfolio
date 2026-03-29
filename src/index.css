@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-navy text-white font-sans antialiased;
+    @apply bg-[#0f1928ff] text-white font-sans antialiased;
     margin: 0;
     padding: 0;
   }
@@ -70,13 +70,3 @@
   }
 }
 
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}

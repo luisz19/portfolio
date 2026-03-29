@@ -24,7 +24,7 @@ function Hero() {
     return (
         <Section
             id="home"
-            className="flex justify-center flex-col gap-5 md:gap-7 md:h-full h-[80vh] my-[5%]  md:py-section-md pb-section-md"
+            className="flex justify-center flex-col gap-5 md:gap-7 md:h-full h-[80dvh] my-[5%]  md:py-section-md pb-section-md"
             animate="visible"
         >
             <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-bold block text-white/70">

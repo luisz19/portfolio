@@ -328,7 +328,7 @@ export default function LiquidGradientBackground({
       uSpeed:         { value: 1 },
       uIntensity:     { value: 0.8 },
       uTouchTexture:  { value: touchTexture.texture },
-      uGrainIntensity:{ value: 0.07 },
+      uGrainIntensity:{ value: 0.05 },
       uDarkNavy:      { value: DARK_BASE.clone() },
       uGradientSize:  { value: 1.6 },
       uGradientCount: { value: 12.0 },
